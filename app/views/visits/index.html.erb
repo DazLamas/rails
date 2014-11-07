@@ -1,0 +1,21 @@
+<h1>VISITS</h1>
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<%end%>
+
+<h2><%= @location.name %> - <%= @location.city %></h2>
+	<ul>
+		<% @visits.each do |visit| %>
+		<h4><%= link_to visit.user_name, location_visit_path(@location, visit.id) %></h4>
+		<br>From: <%= visit.from_date %>
+		<br>To: <%= visit.to_date %>
+		
+		<br><%= link_to 'delete', location_visit_path(@location, visit.id), method: 'delete', data: { confirm:'Are you sure?'} %>
+			<%= link_to 'edit', edit_location_visit_path(@location, visit.id) %>
+		<% end %>
+	</ul>
+<br/><h3>Go back to <a href='<%= locations_path %>'>locations </a></h3>
+<br><h3>Add your <a href='<%= new_location_visit_path %>'>visit</a></h3>
+
+
+

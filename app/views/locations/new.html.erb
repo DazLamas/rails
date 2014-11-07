@@ -1,0 +1,28 @@
+<% if flash[:error] %>
+	<%= flash[:error] %>
+<%end%>
+
+<h1>Create a new location:</h1>
+<% if @location.errors.any? %>
+    <ul>
+        <% @location.errors.full_messages.each do |error_message| %>
+        <li> <%= error_message %></li>
+        <% end %>
+    </ul>
+<% end %>
+<%= form_for [@location] do |f| %>
+
+	<br><%= f.label :name %>
+	<br><%= f.text_field :name %>
+
+	<br><%= f.label :city %>
+	<br><%= f.text_field :city %>
+
+	<br><%= f.label :lat %>
+	<br><%= f.text_field :lat %>
+
+	<br><%= f.label :long %>
+	<br><%= f.text_field :long %>
+
+	<br><%= f.submit "Save" %>
+<% end %>

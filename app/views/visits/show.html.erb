@@ -1,0 +1,9 @@
+<h1><%= @location.name %></h1>
+<h3><%= @visit.user_name %></h3> 
+
+	<br>From: <%= @visit.from_date %>
+	<br>To: <%= @visit.to_date %>
+
+<br/><h3>Go back to <a href='<%= locations_path %>'>locations </a></h3>
+<br><h3><a href='<%= edit_location_visit_path %>'>Edit your visit</a></h3>
+<br><h3><%= link_to 'delete', location_visit_path(@location, @visit), method: 'delete', confirm: "Are you sure?" %>

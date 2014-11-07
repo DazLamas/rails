@@ -1,0 +1,19 @@
+<h1>LOCATIONS</h1>
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<%end%>
+
+ 	<% @locations.each do |location| %>
+	<ul>
+
+			<% if location.name.present? %>
+				<li> <%= location.city %> -
+			 	<%=link_to location.name, location_visits_path(location) %>
+			 	</li>
+			<% else %>
+				<li>
+				<%= link_to location.city, location_visits_path(location.id) %>
+				</li>
+			<% end %>
+	</ul>
+	<% end %>
