@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
  	end
  	def new 
 	  	@location = Location.new
-	  	#@location = @locations.new
+	  	
 	end
 
 	def create

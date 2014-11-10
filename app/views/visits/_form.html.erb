@@ -1,6 +1,8 @@
 <%= form_for [@location, @visit] do |f| %>
-	<%= f.label :user_name %>
-	<%= f.text_field :user_name %>
+
+
+	<%= f.select(:user_id, @select_user, :prompt => 'Select your user') %>
+
 	<br/>From Date:<%= f.datetime_select(:from_date, default: Time.now + 1.days ) %>
 	<br/>To Date:<%= f.datetime_select(:to_date, default: Time.now + 1.days ) %>
 	<br/>

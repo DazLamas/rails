@@ -10,6 +10,14 @@ Rails.application.routes.draw do
 
   #get 'locations/:location_id' => 'locations#show'
 
+  resources :users do
+
+    resources :visits
+
+  end
+
+
+
   resources :locations do
 
     resources :visits

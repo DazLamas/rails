@@ -1,0 +1,18 @@
+<br><% if flash[:notice] %>
+	<%= flash[:notice] %>
+<%end%>
+
+<h1>USERS:</h1>
+
+ 	<% @users.each do |user| %>
+	<ul>
+			<% if user.user_name.present? %>
+				<li> <%= user.user_name %> -  <%= user.email %></li>
+			<% else %>
+				<li>
+				No users
+				</li>
+			<% end %>
+	</ul>
+	<% end %>
+	

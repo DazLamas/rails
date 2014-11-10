@@ -14,6 +14,8 @@ class VisitsController < ApplicationController
 	  def new 
 	  	@location = Location.find(params[:location_id])
 	  	@visit = @location.visits.new
+	  	@select_user = User.users_for_select
+
 	  end
 
 	def	create	
@@ -24,6 +26,7 @@ class VisitsController < ApplicationController
 			flash[:notice] = "Entrada guardada!!"
 			redirect_to	action: 'index', controller: 'visits', location_id: @location.id
 		else	
+			@select_user = User.users_for_select
 			flash[:error] = "Fata Error. Vuelve a introducir los datos"
 			render	'new'	
 		end	
@@ -64,7 +67,7 @@ class VisitsController < ApplicationController
 
 	def visit_params
 		
-		params.require(:visit).permit(:user_name, :from_date, :to_date)
+		params.require(:visit).permit(:from_date, :to_date, :user_id)
 
 	end
 
